@@ -9,15 +9,103 @@ body {
 }
 
 .resume-container {
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: #fff;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.sidebar {
+    background: #f6f7fa;
+    width: 270px;
+    padding: 30px 20px;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px 40px 30px 40px;
 }
 
 header {
     text-align: center;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
+    margin-bottom: 24px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.contact-info {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.summary {
+    margin-bottom: 22px;
+}
+
+h1 {
+    color: #222;
+    font-size: 2.1em;
+    margin-bottom: 0.2em;
+}
+
+h2 {
+    color: #007bff;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 4px;
+    margin-top: 22px;
+    margin-bottom: 10px;
+    font-size: 1.15em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+h3 {
+    margin-bottom: 3px;
+    font-size: 1.03em;
+    color: #222;
+}
+
+.education-item, .experience-item, .project-item {
+    margin-bottom: 14px;
+}
+
+.skill-tag {
+    background: #e9ecef;
+    color: #333;
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 0.95em;
+    margin: 2px 5px 2px 0;
+    display: inline-block;
+}
+
+ul {
+    padding-left: 20px;
+    margin: 7px 0 10px 0;
+}
+
+.languages, .interests, .skills, .summary {
+    margin-bottom: 18px;
+}
+
+@media (max-width: 900px) {
+    .resume-container {
+        flex-direction: column;
+    }
+    .sidebar, .main-content {
+        width: 100%;
+        padding: 24px 10px;
+    }
 }
 
 header h1 {
