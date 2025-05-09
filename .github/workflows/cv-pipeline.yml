@@ -1,0 +1,36 @@
+name: CV Website CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+    
+    - name: Validate HTML
+      run: |
+        pip install html5validator
+        html5validator index.html
+    
+    - name: Check CSS
+      run: |
+        pip install cssutils
+        python -c "import cssutils; cssutils.parseFile('styles.css')"
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .
+        publish_branch: gh-pages
